@@ -7,6 +7,6 @@
 import Foundation
 
 struct APIKeys {
-    let darkSkyKey = ""
-    let googleKey = ""
+    let darkSkyKey = "3cefbd324e1163f2774db3b98731fe84"
+    let googleKey = "AIzaSyCCCayiW61w7akxjIQHAvXJb5bLRgZXpJ0"
 }

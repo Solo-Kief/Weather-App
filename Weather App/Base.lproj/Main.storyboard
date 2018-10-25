@@ -13,7 +13,7 @@
         <!--Tempest-->
         <scene sceneID="zAu-yr-RZH">
             <objects>
-                <viewController id="7fQ-LK-F44" sceneMemberID="viewController">
+                <viewController id="7fQ-LK-F44" customClass="ViewController" customModule="Weather_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8eX-yU-1rT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -61,6 +61,15 @@
                                 <color key="textColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weather Description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Cl-qt-2F7">
+                                <rect key="frame" x="8" y="197.5" width="359" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="kd0-GO-tFM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -69,9 +78,13 @@
                             <constraint firstItem="uL5-4o-6Df" firstAttribute="centerY" secondItem="8eX-yU-1rT" secondAttribute="centerY" id="7AY-C2-Zey"/>
                             <constraint firstItem="BQO-TL-LX5" firstAttribute="centerX" secondItem="AF9-2n-EeW" secondAttribute="centerX" id="9Jo-kp-YNz"/>
                             <constraint firstItem="KfJ-RX-971" firstAttribute="leading" secondItem="n0i-F0-4Q1" secondAttribute="leading" constant="10" id="BHp-pt-5r8"/>
+                            <constraint firstItem="n0i-F0-4Q1" firstAttribute="trailing" secondItem="0Cl-qt-2F7" secondAttribute="trailing" constant="8" id="Jx7-or-xOr"/>
                             <constraint firstItem="BQO-TL-LX5" firstAttribute="top" secondItem="AF9-2n-EeW" secondAttribute="bottom" id="Nar-kW-xzf"/>
+                            <constraint firstItem="0Cl-qt-2F7" firstAttribute="centerX" secondItem="8eX-yU-1rT" secondAttribute="centerX" id="PWD-UM-3HY"/>
                             <constraint firstItem="BQO-TL-LX5" firstAttribute="centerY" secondItem="YHg-7Z-XIj" secondAttribute="centerY" constant="-1" id="Ptb-CY-o80"/>
+                            <constraint firstItem="uL5-4o-6Df" firstAttribute="top" secondItem="0Cl-qt-2F7" secondAttribute="bottom" id="QuZ-8J-yV4"/>
                             <constraint firstItem="ks0-A8-Id4" firstAttribute="leading" secondItem="n0i-F0-4Q1" secondAttribute="leading" id="awa-9u-3tw"/>
+                            <constraint firstItem="0Cl-qt-2F7" firstAttribute="leading" secondItem="n0i-F0-4Q1" secondAttribute="leading" constant="8" id="dP6-2o-HZq"/>
                             <constraint firstItem="n0i-F0-4Q1" firstAttribute="trailing" secondItem="AF9-2n-EeW" secondAttribute="trailing" constant="8" id="jn1-bx-AhZ"/>
                             <constraint firstItem="KfJ-RX-971" firstAttribute="top" secondItem="n0i-F0-4Q1" secondAttribute="top" constant="10" id="pFS-TL-tCM"/>
                             <constraint firstItem="AF9-2n-EeW" firstAttribute="leading" secondItem="n0i-F0-4Q1" secondAttribute="leading" constant="8" id="q7T-cJ-X83"/>
@@ -89,6 +102,14 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="currentTempratureLabel" destination="AF9-2n-EeW" id="VZQ-9c-yeH"/>
+                        <outlet property="highTemperatureLabel" destination="YHg-7Z-XIj" id="xIu-5i-lfq"/>
+                        <outlet property="locationLabel" destination="KfJ-RX-971" id="PRg-fv-rfA"/>
+                        <outlet property="lowTemperatureLabel" destination="A4S-uB-bWP" id="TZb-dJ-8JH"/>
+                        <outlet property="summaryLabel" destination="0Cl-qt-2F7" id="Fv3-lA-xkq"/>
+                        <outlet property="weatherIconLabel" destination="uL5-4o-6Df" id="ykc-IL-x43"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rSu-L6-oeg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

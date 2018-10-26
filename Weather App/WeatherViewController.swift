@@ -8,9 +8,9 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class ViewController: UIViewController {
+class WeatherViewController: UIViewController {
     @IBOutlet var summaryLabel: UILabel!
-    @IBOutlet var weatherIconLabel: UILabel!
+    @IBOutlet var iconLabel: UILabel!
     @IBOutlet var currentTempratureLabel: UILabel!
     @IBOutlet var highTemperatureLabel: UILabel!
     @IBOutlet var lowTemperatureLabel: UILabel!
@@ -18,14 +18,16 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupDefaultUI()
+        /*
         ////////////////////////////////////////////////////////////
         let address = "6229 New Glasgow Rd, scottsville, ky"
         
         let googleURL = "https://maps.googleapis.com/maps/api/geocode/json?address=\(address.replacingOccurrences(of: " ", with: "+")),+CA&key=\(APIKeys().googleKey)"
         
-        let request1 = Alamofire.request(googleURL)
+        let googleRequest = Alamofire.request(googleURL)
         
-        request1.responseJSON { response in
+        googleRequest.responseJSON { response in
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
@@ -41,9 +43,9 @@ class ViewController: UIViewController {
         
         let callURL = baseURL + latitude + "," + longitude
         
-        let request = Alamofire.request(callURL)
+        let darkSkyRequest = Alamofire.request(callURL)
         
-        request.responseJSON { response in
+        darkSkyRequest.responseJSON { response in
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
@@ -53,5 +55,15 @@ class ViewController: UIViewController {
             }
         }
         ////////////////////////////////////////////////////////////
+        */
+    }
+    
+    func setupDefaultUI() {
+        summaryLabel.text = ""
+        locationLabel.text = "Location Needed"
+        iconLabel.text = "⛈"
+        currentTempratureLabel.text = "NaN"
+        highTemperatureLabel.text = "-"
+        lowTemperatureLabel.text = "-"
     }
 }

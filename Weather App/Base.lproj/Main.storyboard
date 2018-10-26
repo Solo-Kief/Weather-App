@@ -13,7 +13,7 @@
         <!--Tempest-->
         <scene sceneID="zAu-yr-RZH">
             <objects>
-                <viewController id="7fQ-LK-F44" customClass="ViewController" customModule="Weather_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="7fQ-LK-F44" customClass="WeatherViewController" customModule="Weather_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8eX-yU-1rT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -44,8 +44,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="150º F" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YHg-7Z-XIj">
-                                <rect key="frame" x="119.5" y="482.5" width="60" height="24"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <rect key="frame" x="123" y="482.5" width="56.5" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -56,12 +56,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-150º F" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A4S-uB-bWP">
-                                <rect key="frame" x="195.5" y="482.5" width="69" height="24"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <rect key="frame" x="195.5" y="482.5" width="65" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weather Description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Cl-qt-2F7">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weather Summary" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Cl-qt-2F7">
                                 <rect key="frame" x="8" y="197.5" width="359" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="kd0-GO-tFM"/>
@@ -83,13 +83,13 @@
                             <constraint firstItem="0Cl-qt-2F7" firstAttribute="centerX" secondItem="8eX-yU-1rT" secondAttribute="centerX" id="PWD-UM-3HY"/>
                             <constraint firstItem="BQO-TL-LX5" firstAttribute="centerY" secondItem="YHg-7Z-XIj" secondAttribute="centerY" constant="-1" id="Ptb-CY-o80"/>
                             <constraint firstItem="uL5-4o-6Df" firstAttribute="top" secondItem="0Cl-qt-2F7" secondAttribute="bottom" id="QuZ-8J-yV4"/>
-                            <constraint firstItem="ks0-A8-Id4" firstAttribute="leading" secondItem="n0i-F0-4Q1" secondAttribute="leading" id="awa-9u-3tw"/>
+                            <constraint firstItem="ks0-A8-Id4" firstAttribute="leading" secondItem="8eX-yU-1rT" secondAttribute="leading" id="awa-9u-3tw"/>
                             <constraint firstItem="0Cl-qt-2F7" firstAttribute="leading" secondItem="n0i-F0-4Q1" secondAttribute="leading" constant="8" id="dP6-2o-HZq"/>
                             <constraint firstItem="n0i-F0-4Q1" firstAttribute="trailing" secondItem="AF9-2n-EeW" secondAttribute="trailing" constant="8" id="jn1-bx-AhZ"/>
                             <constraint firstItem="KfJ-RX-971" firstAttribute="top" secondItem="n0i-F0-4Q1" secondAttribute="top" constant="10" id="pFS-TL-tCM"/>
                             <constraint firstItem="AF9-2n-EeW" firstAttribute="leading" secondItem="n0i-F0-4Q1" secondAttribute="leading" constant="8" id="q7T-cJ-X83"/>
                             <constraint firstItem="AF9-2n-EeW" firstAttribute="top" secondItem="uL5-4o-6Df" secondAttribute="bottom" constant="8" id="qGT-sb-KDI"/>
-                            <constraint firstItem="ks0-A8-Id4" firstAttribute="bottom" secondItem="n0i-F0-4Q1" secondAttribute="bottom" id="reS-NM-klu"/>
+                            <constraint firstItem="ks0-A8-Id4" firstAttribute="bottom" secondItem="8eX-yU-1rT" secondAttribute="bottom" id="reS-NM-klu"/>
                             <constraint firstItem="A4S-uB-bWP" firstAttribute="leading" secondItem="BQO-TL-LX5" secondAttribute="trailing" constant="4" id="tGX-Wv-hHe"/>
                             <constraint firstItem="uL5-4o-6Df" firstAttribute="centerX" secondItem="8eX-yU-1rT" secondAttribute="centerX" id="vEG-Rn-Zqz"/>
                         </constraints>
@@ -105,10 +105,10 @@
                     <connections>
                         <outlet property="currentTempratureLabel" destination="AF9-2n-EeW" id="VZQ-9c-yeH"/>
                         <outlet property="highTemperatureLabel" destination="YHg-7Z-XIj" id="xIu-5i-lfq"/>
+                        <outlet property="iconLabel" destination="uL5-4o-6Df" id="ykc-IL-x43"/>
                         <outlet property="locationLabel" destination="KfJ-RX-971" id="PRg-fv-rfA"/>
                         <outlet property="lowTemperatureLabel" destination="A4S-uB-bWP" id="TZb-dJ-8JH"/>
                         <outlet property="summaryLabel" destination="0Cl-qt-2F7" id="Fv3-lA-xkq"/>
-                        <outlet property="weatherIconLabel" destination="uL5-4o-6Df" id="ykc-IL-x43"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rSu-L6-oeg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -118,7 +118,7 @@
         <!--Change Location-->
         <scene sceneID="9K7-8Y-eYC">
             <objects>
-                <viewController title="Change Location" id="sKl-ze-fla" sceneMemberID="viewController">
+                <viewController title="Change Location" id="sKl-ze-fla" customClass="LocationViewController" customModule="Weather_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0Ea-jV-thR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -139,6 +139,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FHV-ec-twl"/>
                     </view>
+                    <connections>
+                        <outlet property="searchBar" destination="s53-DQ-ygJ" id="5ol-zs-8rG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1yV-fQ-vcq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

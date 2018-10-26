@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DarkSkyLogo" translatesAutoresizingMaskIntoConstraints="NO" id="ks0-A8-Id4">
-                                <rect key="frame" x="0.0" y="597" width="183" height="70"/>
+                                <rect key="frame" x="0.0" y="595" width="183" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="183" id="OIL-Fz-sL7"/>
                                     <constraint firstAttribute="height" constant="70" id="z1U-v0-k1m"/>
@@ -89,7 +89,7 @@
                             <constraint firstItem="KfJ-RX-971" firstAttribute="top" secondItem="n0i-F0-4Q1" secondAttribute="top" constant="10" id="pFS-TL-tCM"/>
                             <constraint firstItem="AF9-2n-EeW" firstAttribute="leading" secondItem="n0i-F0-4Q1" secondAttribute="leading" constant="8" id="q7T-cJ-X83"/>
                             <constraint firstItem="AF9-2n-EeW" firstAttribute="top" secondItem="uL5-4o-6Df" secondAttribute="bottom" constant="8" id="qGT-sb-KDI"/>
-                            <constraint firstItem="ks0-A8-Id4" firstAttribute="bottom" secondItem="8eX-yU-1rT" secondAttribute="bottom" id="reS-NM-klu"/>
+                            <constraint firstItem="ks0-A8-Id4" firstAttribute="bottom" secondItem="8eX-yU-1rT" secondAttribute="bottom" constant="-2" id="reS-NM-klu"/>
                             <constraint firstItem="A4S-uB-bWP" firstAttribute="leading" secondItem="BQO-TL-LX5" secondAttribute="trailing" constant="4" id="tGX-Wv-hHe"/>
                             <constraint firstItem="uL5-4o-6Df" firstAttribute="centerX" secondItem="8eX-yU-1rT" secondAttribute="centerX" id="vEG-Rn-Zqz"/>
                         </constraints>

@@ -19,43 +19,8 @@ class WeatherViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupDefaultUI()
-        /*
-        ////////////////////////////////////////////////////////////
-        let address = "6229 New Glasgow Rd, scottsville, ky"
-        
-        let googleURL = "https://maps.googleapis.com/maps/api/geocode/json?address=\(address.replacingOccurrences(of: " ", with: "+")),+CA&key=\(APIKeys().googleKey)"
-        
-        let googleRequest = Alamofire.request(googleURL)
-        
-        googleRequest.responseJSON { response in
-            switch response.result {
-            case .success(let value):
-                let json = JSON(value)
-                print(json)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-        ////////////////////////////////////////////////////////////
-        let baseURL = "https://api.darksky.net/forecast/\(APIKeys().darkSkyKey)/"
-        let latitude = "37.004842"
-        let longitude = "-85.925876"
-        
-        let callURL = baseURL + latitude + "," + longitude
-        
-        let darkSkyRequest = Alamofire.request(callURL)
-        
-        darkSkyRequest.responseJSON { response in
-            switch response.result {
-            case .success(let value):
-                let json = JSON(value)
-                print(json)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-        ////////////////////////////////////////////////////////////
-        */
+        let weatherData = WeatherData(temperature: 95, highTemperature: 108, lowTemperature: 86, condition: .Night)
+        setupUI(weatherData: weatherData)
     }
     
     func setupDefaultUI() {
@@ -65,5 +30,14 @@ class WeatherViewController: UIViewController {
         currentTempratureLabel.text = "NaN"
         highTemperatureLabel.text = "-"
         lowTemperatureLabel.text = "-"
+    }
+    
+    func setupUI(weatherData: WeatherData) {
+        summaryLabel.text = weatherData.summery
+        locationLabel.text = "Not Implemented"
+        iconLabel.text = weatherData.condition.icon
+        currentTempratureLabel.text = String(weatherData.temperature) + " ºF"
+        highTemperatureLabel.text = String(weatherData.highTemperature) + " ºF"
+        lowTemperatureLabel.text = String(weatherData.lowTemperature) + " ºF"
     }
 }

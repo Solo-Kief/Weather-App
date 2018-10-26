@@ -82,16 +82,32 @@
 		C634E2792180FE11002D74B0 /* Weather App */ = {
 			isa = PBXGroup;
 			children = (
+				C634E27E2180FE11002D74B0 /* Main.storyboard */,
+				C6A1A78C21838EAA0090F110 /* View Controllers */,
+				C6A1A78D21838ED50090F110 /* Misc */,
+				C634E2862180FE12002D74B0 /* Info.plist */,
+			);
+			path = "Weather App";
+			sourceTree = "<group>";
+		};
+		C6A1A78C21838EAA0090F110 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
 				C634E27C2180FE11002D74B0 /* WeatherViewController.swift */,
 				C6A1A78A218388B00090F110 /* LocationViewController.swift */,
-				C634E27E2180FE11002D74B0 /* Main.storyboard */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		C6A1A78D21838ED50090F110 /* Misc */ = {
+			isa = PBXGroup;
+			children = (
 				C634E2812180FE12002D74B0 /* Assets.xcassets */,
 				C634E27A2180FE11002D74B0 /* AppDelegate.swift */,
 				C634E2832180FE12002D74B0 /* LaunchScreen.storyboard */,
-				C634E2862180FE12002D74B0 /* Info.plist */,
 				C6ECD4F2218236BB006BBF93 /* API.swift */,
 			);
-			path = "Weather App";
+			path = Misc;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

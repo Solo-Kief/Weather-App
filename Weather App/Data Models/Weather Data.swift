@@ -6,6 +6,7 @@
 
 import Foundation
 import SwiftyJSON
+import Alamofire
 
 class WeatherData {
     //MARK:- Types
@@ -52,7 +53,7 @@ class WeatherData {
     let highTemperature: Double
     let lowTemperature: Double
     let condition: weatherCondition
-    let summery: String?
+    let summary: String?
     
     //MARK:- Initializers
     init(temperature: Double, highTemperature: Double, lowTemperature: Double, condition: weatherCondition) {
@@ -60,24 +61,24 @@ class WeatherData {
         self.highTemperature = highTemperature
         self.lowTemperature = lowTemperature
         self.condition = condition
-        self.summery = nil
+        self.summary = nil
     }
     
-    init(temperature: Double, highTemperature: Double, lowTemperature: Double, condition: weatherCondition, summery: String) {
+    init(temperature: Double, highTemperature: Double, lowTemperature: Double, condition: weatherCondition, summary: String) {
         self.temperature = temperature
         self.highTemperature = highTemperature
         self.lowTemperature = lowTemperature
         self.condition = condition
-        self.summery = summery
+        self.summary = summary
     }
     
     convenience init?(json: JSON) { //Failable convenience initializer
         guard let temperature = json["currently"]["temperature"].double else {return nil}
-        guard let highTemperature = json["data"][0]["temperatureHigh"].double else {return nil}
-        guard let lowTemperature = json["data"][0]["temperatureLow"].double else {return nil}
-        guard let summary = json["currently"]["summary"].string else {return nil}
+        guard let highTemperature = json["daily"]["data"][0]["temperatureHigh"].double else {return nil}
+        guard let lowTemperature = json["daily"]["data"][0]["temperatureLow"].double else {return nil}
+        guard let summary = json["hourly"]["summary"].string else {return nil}
         guard let condition = weatherCondition(rawValue: json["currently"]["icon"].string!) else {return nil}
         
-        self.init(temperature: temperature, highTemperature: highTemperature, lowTemperature: lowTemperature, condition: condition, summery: summary)
+        self.init(temperature: temperature, highTemperature: highTemperature, lowTemperature: lowTemperature, condition: condition, summary: summary)
     }
 }

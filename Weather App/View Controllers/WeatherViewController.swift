@@ -7,8 +7,9 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import MapKit
 
-class WeatherViewController: UIViewController {
+class WeatherViewController: UIViewController,CLLocationManagerDelegate {
     @IBOutlet var summaryLabel: UILabel!
     @IBOutlet var iconLabel: UILabel!
     @IBOutlet var currentTempratureLabel: UILabel!
@@ -16,9 +17,45 @@ class WeatherViewController: UIViewController {
     @IBOutlet var lowTemperatureLabel: UILabel!
     @IBOutlet var locationLabel: UILabel!
     
+    var displayWeatherData: WeatherData! {
+        didSet {
+            setupUI(weatherData: displayWeatherData)
+        }
+    }
+    
+    var displayGeocodingData: GeocodingData! {
+        didSet {
+            locationLabel.text = displayGeocodingData.formattedAddress
+        }
+    }
+    
+    var GPS = CLLocationManager()
+    let apiManager = APIManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        getUpdate()
+        setupDefaultUI()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            GPS.delegate = self
+            GPS.desiredAccuracy = kCLLocationAccuracyBest
+            if self.GPS.responds(to: (#selector(CLLocationManager.requestAlwaysAuthorization))) {
+                GPS.requestAlwaysAuthorization()
+            } else {
+                GPS.startUpdatingLocation()
+            }
+        }
+        GPS.startUpdatingLocation()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        apiManager.getWeather(latitude: (GPS.location?.coordinate.latitude)!, longitude: (GPS.location?.coordinate.latitude)!) { (weatherData, error) in
+            self.setupUI(weatherData: weatherData!)
+        }
+        
+        print(GPS.location?.coordinate.latitude)
+        print(GPS.location?.coordinate.longitude)
+        GPS.stopUpdatingLocation()
     }
     
     func setupDefaultUI() {
@@ -39,24 +76,7 @@ class WeatherViewController: UIViewController {
         lowTemperatureLabel.text = String(Int(weatherData.lowTemperature.rounded())) + "ºF"
     }
     
-    func getUpdate() {
-        let baseURL = "https://api.darksky.net/forecast/"
-        let apiKey = APIKeys().darkSkyKey
-        let latitude = 37.8267
-        let longitude = -122.4233
-        let requestURL = "\(baseURL)\(apiKey)/\(latitude),\(longitude)"
-        let request = Alamofire.request(requestURL)
+    @IBAction func unwindToWeatherDisplay(segue: UIStoryboardSegue) {
         
-        request.responseJSON { response in
-            switch response.result {
-            case .success(let data):
-                let json = JSON(data)
-                guard let weatherData = WeatherData(json: json) else {return self.setupDefaultUI()}
-                self.setupUI(weatherData: weatherData)
-            case .failure(let error):
-                print(error.localizedDescription)
-                self.setupDefaultUI()
-            }
-        }
     }
 }

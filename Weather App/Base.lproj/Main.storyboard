@@ -141,9 +141,11 @@
                     </view>
                     <connections>
                         <outlet property="searchBar" destination="s53-DQ-ygJ" id="5ol-zs-8rG"/>
+                        <segue destination="RCc-pf-yGx" kind="unwind" identifier="unwindToWeatherDisplay" unwindAction="unwindToWeatherDisplayWithSegue:" id="7xe-2j-o0k"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1yV-fQ-vcq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="RCc-pf-yGx" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1036" y="145"/>
         </scene>

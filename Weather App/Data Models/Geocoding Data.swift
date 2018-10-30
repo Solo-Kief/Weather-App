@@ -21,7 +21,7 @@ class GeocodingData {
     }
     
     convenience init?(json: JSON) {
-        guard let results = json["results"].array else {return nil}
+        guard let results = json["results"].array, results.count > 0 else {return nil}
         guard let formattedAddress = results[0]["formatted_address"].string else {return nil}
         guard let latitude = results[0]["geometry"]["location"]["lat"].double else {return nil}
         guard let longitude = results[0]["geometry"]["location"]["lng"].double else {return nil}
